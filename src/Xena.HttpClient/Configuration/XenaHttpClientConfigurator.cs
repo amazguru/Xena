@@ -26,11 +26,8 @@ internal class XenaHttpClientConfigurator : IXenaHttpClientConfigurator
 
         _xenaWebApplicationBuilder.AddPostBuildAction(application =>
         {
-            var httpClientName = typeof(THttpClient).FullName;
-
             var discoveryServicesService = application.Services.GetRequiredService<IXenaDiscoveryServicesService>();
-
-            discoveryServicesService.AddServiceTagAsync(httpClientName!);
+            
         });
 
         return this;

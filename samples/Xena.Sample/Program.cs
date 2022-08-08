@@ -12,14 +12,14 @@ builder.Configure(applicationBuilder =>
     applicationBuilder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
     applicationBuilder.Services.AddRazorPages();
 
-    applicationBuilder.Services.AddOptions<ConsulXenaDiscoveryServicesConfiguration>()
+    applicationBuilder.Services.AddOptions<ConsulDiscoveryServicesConfiguration>()
         .BindConfiguration("Consul");
 });
 
 var app = builder
     .AddDiscoveryServicesService(configurator =>
     {
-        ConsulXenaDiscoveryServicesExtensions.AddConsulDiscover(configurator
+        XenaConsulDiscoveryServicesExtensions.AddConsulDiscover(configurator
                 .AddHealthCheck());
     })
     .AddHealthChecks()

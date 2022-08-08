@@ -18,11 +18,6 @@ internal class MemoryXenaDiscoveryServicesService : IXenaDiscoveryServicesServic
         return Task.CompletedTask;
     }
 
-    public Task AddServiceTagAsync(params string[] tags)
-    {
-        return Task.CompletedTask;
-    }
-
     public Task<Service?> GetServiceAsync(string id)
     {
         var service = _services.FirstOrDefault(s => s.Id == id);
