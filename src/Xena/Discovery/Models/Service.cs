@@ -12,7 +12,10 @@ public class Service
     public IReadOnlyList<string> Tags
     {
         get => _tags;
-        init => _tags.AddRange(value);
+        init
+        {
+            _tags.AddRange(value);
+        }
     }
 
     public void AddTags(params string[] tags)
